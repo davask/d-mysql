@@ -3,8 +3,9 @@ MAINTAINER davask <docker@davaskweblimited.com>
 LABEL dwl.server.db="MySQL 5"
 
 # Update packages
-RUN apt-get update
-RUN rm -rf /var/lib/apt/lists/*
+RUN /bin/bash -c 'apt-get update'
+RUN /bin/bash -c 'apt-get install -y mysql-server'
+RUN /bin/bash -c 'rm -rf /var/lib/apt/lists/*'
 
 EXPOSE 3306
 
